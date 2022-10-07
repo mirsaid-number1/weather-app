@@ -30,7 +30,7 @@ function App() {
           response.data.results[Math.floor(Math.random() * 10)].urls.full
         );
       });
-  }, [weather_type]);
+  }, [weather_type,query]);
 
   function search(e) {
     e.preventDefault();
@@ -84,14 +84,16 @@ function App() {
           ? {
               backgroundImage: `url(${bg_image})`,
               backgroundAttachment: "fixed",
-              backgroundPosition: "center",
+              backgroundPosition: "center center",
+              backgroundRepeat:'no-repeat',
               backgroundSize: "wrap",
             }
           : {
               backgroundImage: `url(${bg_image})`,
               backgroundAttachment: "fixed",
-              backgroundPosition: "center",
-              height: "100vh",
+              backgroundRepeat:'no-repeat',
+              backgroundSize: "wrap",
+              backgroundPosition: "center center",
             }
       }
     >
@@ -133,7 +135,6 @@ function App() {
               <div className="temp">{Math.round(weather.main.temp)}°c</div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
-
             <div className="roller_second_party">
               <div className="weather_info">
                 <ul className="info_list">
